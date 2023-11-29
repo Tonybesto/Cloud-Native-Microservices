@@ -1,4 +1,4 @@
-path
+path/*
 path.*
 path/to/env.*
 get-pip.py
