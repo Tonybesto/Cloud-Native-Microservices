@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stateful-flask
+  namespace: stateful-flask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stateful-flask
+  template:
+    metadata:
+      labels:
+        app: stateful-flask
+    spec:
+      containers:
+      - name: stateful-flask
+        image: tony06/stateful-flask:v0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
